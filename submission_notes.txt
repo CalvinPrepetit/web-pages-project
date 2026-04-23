@@ -12,6 +12,10 @@ What the teacher wants submitted:
 - The AI used to create the web pages
 - The instructions submitted for each web page
 
+Access links:
+- GitHub Pages site: https://calvinprepetit.github.io/web-pages-project/
+- GitHub repository: https://github.com/CalvinPrepetit/web-pages-project
+
 AI used:
 - OpenAI Codex
 
@@ -28,7 +32,4 @@ Prompt idea for personal page:
   to read.
 
 GitHub publishing:
-- TODO: install Git and GitHub CLI
-- TODO: sign into GitHub
-- TODO: create a repository or use an existing one
-- TODO: publish the files and copy the public link
+- Published GitHub Pages site is active from the main branch.
