@@ -1,0 +1,39 @@
+Generating Web Pages
+
+Generate two (2) Web pages using an AI of your choice.
+
+1. Family Web Page
+
+Generate a fictitious family web page of 5 people, Mother, Father and three (3) children
+
+Include occupations of Mother & Father (mother does not have to work full-time or work at all)
+
+Describe activities of all three children, such as clubs, sports, school achievements, part-time work, they do not all have to live at home (one could be away at college)
+
+Include any family pets
+
+Describe last family vacation, where, activities, etc.
+
+2. Personal Web Page
+
+Generate a personal web page for yourself, DO NOT disclose personal data such as address, SSN, etc.
+
+Include past activities such as sports, school accomplishments, part-time work, awards, hobbies, etc.
+
+Current major at CPCC if applicable
+
+Plans for further education if applicable
+
+Current career plans
+
+Any other information of your choice
+
+Create a GitHub account for yourself, or use an existing one, add a public access branch to store the pages and provide the link on the document submitted in BS.
+
+The Word/text document submitted must include the following:
+
+access link to web pages, test to make sure it works
+
+the AI used to create the web pages
+
+the instructions submitted for each web page

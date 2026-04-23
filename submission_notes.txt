@@ -1,0 +1,34 @@
+Generating Web Pages Project Notes
+
+Files in this folder:
+- index.html
+- family.html
+- personal.html
+- styles.css
+- Generating Web Pages project instructions.txt
+
+What the teacher wants submitted:
+- Access link to the web pages
+- The AI used to create the web pages
+- The instructions submitted for each web page
+
+AI used:
+- OpenAI Codex
+
+Prompt idea for family page:
+- Create a fictional family web page for a family of five with a mother, father,
+  and three children. Include the occupations of the parents, activities and
+  accomplishments for each child, any family pets, and a description of their
+  last family vacation. Make it school appropriate and easy to read.
+
+Prompt idea for personal page:
+- Create a personal student web page without private information. Include past
+  activities, school accomplishments, hobbies, current major if applicable,
+  future education plans, and career goals. Make it school appropriate and easy
+  to read.
+
+GitHub publishing:
+- TODO: install Git and GitHub CLI
+- TODO: sign into GitHub
+- TODO: create a repository or use an existing one
+- TODO: publish the files and copy the public link
