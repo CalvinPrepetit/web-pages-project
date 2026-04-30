@@ -155,7 +155,7 @@ h2 {
 .hero-copy,
 .tight-copy,
 .notice p {
-  max-width: 62ch;
+  max-width: none;
 }
 
 .hero-photo {
@@ -218,6 +218,12 @@ h2 {
 
 .section-header {
   margin: 0 0 16px;
+}
+
+.section-header h2,
+.hero h1 {
+  color: #111111;
+  font-weight: 800;
 }
 
 .member-stack {
