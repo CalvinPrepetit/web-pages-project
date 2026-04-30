@@ -299,6 +299,31 @@ h2 {
   margin-bottom: 0;
 }
 
+.facts-grid {
+  display: grid;
+  gap: 12px;
+}
+
+.fact-pill {
+  display: grid;
+  gap: 4px;
+  padding: 14px 16px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.34);
+  border: 1px solid rgba(82, 144, 197, 0.18);
+}
+
+.fact-pill strong {
+  font-size: 0.86rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+}
+
+.fact-pill span {
+  color: var(--ink);
+}
+
 .compact-list li + li,
 .details-list li + li {
   margin-top: 7px;
