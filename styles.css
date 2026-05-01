@@ -360,8 +360,13 @@ h2 {
   padding-bottom: 12px;
   margin-top: 10px;
   scroll-snap-type: x proximity;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(92, 225, 230, 0.55) transparent;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  mask-image: linear-gradient(90deg, transparent 0, black 5%, black 95%, transparent 100%);
+}
+
+.wheel-gallery::-webkit-scrollbar {
+  display: none;
 }
 
 .wheel-card {
