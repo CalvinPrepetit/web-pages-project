@@ -19,23 +19,31 @@ const carousel = document.querySelector("[data-carousel]");
 
 if (carousel && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
   let pause = false;
+  const cards = Array.from(carousel.querySelectorAll(".wheel-card"));
+  let index = 0;
+
+  const goToCard = (nextIndex) => {
+    if (!cards.length) {
+      return;
+    }
+
+    index = nextIndex >= cards.length ? 0 : nextIndex;
+    const card = cards[index];
+
+    carousel.scrollTo({
+      left: card.offsetLeft,
+      behavior: "smooth",
+    });
+  };
+
   const step = () => {
     if (pause) {
       return;
     }
-
-    const limit = carousel.scrollWidth - carousel.clientWidth;
-    const next = carousel.scrollLeft + 1.1;
-
-    if (next >= limit) {
-      carousel.scrollTo({ left: 0, behavior: "smooth" });
-      return;
-    }
-
-    carousel.scrollLeft = next;
+    goToCard(index + 1);
   };
 
-  const timer = window.setInterval(step, 24);
+  const timer = window.setInterval(step, 3200);
 
   const stop = () => {
     pause = true;
@@ -49,5 +57,17 @@ if (carousel && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) 
   carousel.addEventListener("mouseleave", resume);
   carousel.addEventListener("touchstart", stop, { passive: true });
   carousel.addEventListener("touchend", resume);
+  carousel.addEventListener("scroll", () => {
+    if (pause) {
+      const nearest = cards.reduce(
+        (best, card, cardIndex) => {
+          const distance = Math.abs(carousel.scrollLeft - card.offsetLeft);
+          return distance < best.distance ? { distance, index: cardIndex } : best;
+        },
+        { distance: Number.POSITIVE_INFINITY, index: 0 }
+      );
+      index = nearest.index;
+    }
+  });
   window.addEventListener("beforeunload", () => window.clearInterval(timer));
 }
