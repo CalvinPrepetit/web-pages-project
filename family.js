@@ -23,35 +23,57 @@ if (carousel && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) 
   if (!track || !cards.length) {
     // no-op
   } else {
-  let pause = false;
-  let index = 0;
+    let pause = false;
+    let offset = 0;
+    let frameId = 0;
+    const speed = 0.45;
+    const originals = Array.from(cards);
 
-  const goToCard = (nextIndex) => {
-    index = nextIndex >= cards.length ? 0 : nextIndex;
-    track.style.transform = `translateX(-${index * 100}%)`;
-  };
+    originals.forEach((card) => {
+      track.appendChild(card.cloneNode(true));
+    });
 
-  const step = () => {
-    if (pause) {
-      return;
-    }
-    goToCard(index + 1);
-  };
+    const getLoopWidth = () => {
+      const gapValue = Number.parseFloat(getComputedStyle(track).gap || "0");
+      return originals.reduce((sum, card) => sum + card.offsetWidth, 0) + gapValue * originals.length;
+    };
 
-  const timer = window.setInterval(step, 3200);
+    let loopWidth = 0;
 
-  const stop = () => {
-    pause = true;
-  };
+    const animate = () => {
+      if (!pause) {
+        if (!loopWidth) {
+          loopWidth = getLoopWidth();
+        }
 
-  const resume = () => {
-    pause = false;
-  };
+        offset += speed;
+        if (offset >= loopWidth) {
+          offset = 0;
+        }
 
-  carousel.addEventListener("mouseenter", stop);
-  carousel.addEventListener("mouseleave", resume);
-  carousel.addEventListener("touchstart", stop, { passive: true });
-  carousel.addEventListener("touchend", resume);
-  window.addEventListener("beforeunload", () => window.clearInterval(timer));
+        track.style.transform = `translateX(-${offset}px)`;
+      }
+
+      frameId = window.requestAnimationFrame(animate);
+    };
+
+    const stop = () => {
+      pause = true;
+    };
+
+    const resume = () => {
+      loopWidth = getLoopWidth();
+      pause = false;
+    };
+
+    carousel.addEventListener("mouseenter", stop);
+    carousel.addEventListener("mouseleave", resume);
+    carousel.addEventListener("touchstart", stop, { passive: true });
+    carousel.addEventListener("touchend", resume);
+    window.addEventListener("resize", () => {
+      loopWidth = getLoopWidth();
+    });
+    frameId = window.requestAnimationFrame(animate);
+    window.addEventListener("beforeunload", () => window.cancelAnimationFrame(frameId));
   }
 }
