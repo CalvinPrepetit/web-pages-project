@@ -305,6 +305,10 @@ h2 {
   grid-column: span 6;
 }
 
+.full-span {
+  grid-column: 1 / -1;
+}
+
 .details-list {
   padding-left: 18px;
   margin-bottom: 0;
