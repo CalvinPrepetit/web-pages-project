@@ -18,22 +18,17 @@ revealItems.forEach((item) => revealObserver.observe(item));
 const carousel = document.querySelector("[data-carousel]");
 
 if (carousel && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-  let pause = false;
+  const track = carousel.querySelector("[data-carousel-track]");
   const cards = Array.from(carousel.querySelectorAll(".wheel-card"));
+  if (!track || !cards.length) {
+    // no-op
+  } else {
+  let pause = false;
   let index = 0;
 
   const goToCard = (nextIndex) => {
-    if (!cards.length) {
-      return;
-    }
-
     index = nextIndex >= cards.length ? 0 : nextIndex;
-    const card = cards[index];
-
-    carousel.scrollTo({
-      left: card.offsetLeft,
-      behavior: "smooth",
-    });
+    track.style.transform = `translateX(-${index * 100}%)`;
   };
 
   const step = () => {
@@ -57,17 +52,6 @@ if (carousel && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) 
   carousel.addEventListener("mouseleave", resume);
   carousel.addEventListener("touchstart", stop, { passive: true });
   carousel.addEventListener("touchend", resume);
-  carousel.addEventListener("scroll", () => {
-    if (pause) {
-      const nearest = cards.reduce(
-        (best, card, cardIndex) => {
-          const distance = Math.abs(carousel.scrollLeft - card.offsetLeft);
-          return distance < best.distance ? { distance, index: cardIndex } : best;
-        },
-        { distance: Number.POSITIVE_INFINITY, index: 0 }
-      );
-      index = nearest.index;
-    }
-  });
   window.addEventListener("beforeunload", () => window.clearInterval(timer));
+  }
 }
