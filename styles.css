@@ -120,6 +120,7 @@ img {
 .hero {
   padding: 42px 38px;
   margin-bottom: 28px;
+  text-align: center;
 }
 
 .hero h1 {
@@ -218,12 +219,17 @@ h2 {
 
 .section-header {
   margin: 0 0 16px;
+  text-align: center;
 }
 
 .section-header h2,
 .hero h1 {
   color: #111111;
   font-weight: 800;
+}
+
+.section-header h2 {
+  font-size: clamp(2rem, 4vw, 2.8rem);
 }
 
 .member-stack {
