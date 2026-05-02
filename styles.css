@@ -500,18 +500,14 @@ h2 {
 }
 
 body.personal-page {
-  color: #f4f8ff;
+  color: #f5f8ff;
   background:
-    radial-gradient(circle at top, rgba(70, 118, 255, 0.2), transparent 32%),
-    linear-gradient(180deg, #07111f 0%, #0e1d32 40%, #183253 72%, #d8e8ff 100%);
+    radial-gradient(circle at top, rgba(91, 128, 255, 0.2), transparent 28%),
+    linear-gradient(180deg, #06101d 0%, #0d1a2e 34%, #15355b 70%, #d7e9ff 100%);
 }
 
 .personal-page a {
   color: #8ec5ff;
-}
-
-.personal-page .page-shell {
-  padding: 34px 0 56px;
 }
 
 .personal-bg {
@@ -567,23 +563,29 @@ body.personal-page {
 .personal-shell {
   position: relative;
   z-index: 1;
+  width: min(1480px, calc(100% - 34px));
+  padding: 28px 0 60px;
 }
 
 .personal-hero {
   display: grid;
-  grid-template-columns: minmax(0, 1.35fr) minmax(320px, 0.85fr);
-  gap: 24px;
+  grid-template-columns: minmax(0, 1.2fr) minmax(340px, 0.8fr);
+  gap: 26px;
   align-items: stretch;
-  margin-bottom: 30px;
+  margin-bottom: 26px;
 }
 
 .personal-hero-copy,
-.personal-hero-panel,
+.personal-hero-visual,
 .storyband-card,
 .journey-step,
+.journey-visual,
 .personal-feature,
 .value-card,
-.personal-closing {
+.personal-closing-visual,
+.personal-closing-copy,
+.personal-band-copy,
+.personal-band-side article {
   border: 1px solid rgba(170, 205, 255, 0.14);
   border-radius: 28px;
   box-shadow: 0 22px 52px rgba(0, 0, 0, 0.32);
@@ -596,10 +598,26 @@ body.personal-page {
     linear-gradient(160deg, rgba(9, 18, 34, 0.92), rgba(16, 36, 66, 0.78));
 }
 
+.personal-chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.personal-chip-row span {
+  padding: 9px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(150, 202, 255, 0.18);
+  color: #e8f2ff;
+  font-weight: 700;
+  font-size: 0.93rem;
+}
+
 .personal-kicker,
 .personal-section-kicker,
-.storyband-label,
-.personal-stat-label {
+.storyband-label {
   text-transform: uppercase;
   letter-spacing: 0.16em;
   font-size: 0.78rem;
@@ -633,49 +651,111 @@ body.personal-page {
   color: rgba(233, 242, 255, 0.88);
 }
 
-.personal-hero-panel {
-  display: grid;
-  gap: 18px;
-  padding: 24px;
+.personal-hero-visual {
+  padding: 22px;
   background:
-    linear-gradient(180deg, rgba(15, 33, 59, 0.92), rgba(27, 56, 95, 0.72));
+    linear-gradient(180deg, rgba(15, 33, 59, 0.9), rgba(27, 56, 95, 0.68));
 }
 
-.personal-quote {
-  padding: 22px 22px 18px;
-  border-radius: 22px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(173, 220, 255, 0.18);
+.placeholder-stack {
+  display: grid;
+  gap: 16px;
+  height: 100%;
 }
 
-.personal-quote p {
+.placeholder-pair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.placeholder-card {
+  position: relative;
+  display: grid;
+  align-items: end;
+  overflow: hidden;
+  min-height: 220px;
+  padding: 18px;
+  border-radius: 24px;
+  border: 1px dashed rgba(171, 215, 255, 0.28);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.02)),
+    radial-gradient(circle at top right, rgba(122, 174, 255, 0.2), transparent 34%),
+    linear-gradient(180deg, rgba(12, 24, 42, 0.84), rgba(19, 42, 70, 0.76));
+}
+
+.placeholder-badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(11, 19, 33, 0.7);
+  border: 1px solid rgba(150, 204, 255, 0.2);
+  color: #9fd5ff;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+.placeholder-card p {
   margin-bottom: 0;
-  font-size: 1.22rem;
-  line-height: 1.45;
-  color: #f9fbff;
+  color: rgba(234, 241, 255, 0.9);
+  font-weight: 700;
+  max-width: 24ch;
 }
 
-.personal-stat-grid {
+.placeholder-portrait {
+  min-height: 420px;
+}
+
+.placeholder-figure {
+  position: absolute;
+  inset: 60px 18px 62px;
   display: grid;
-  gap: 14px;
+  place-items: center;
+  border-radius: 22px;
+  background:
+    radial-gradient(circle at center, rgba(133, 194, 255, 0.2), transparent 36%),
+    linear-gradient(180deg, rgba(11, 21, 38, 0.78), rgba(32, 58, 94, 0.54));
 }
 
-.personal-stat {
-  display: grid;
-  gap: 8px;
-  padding: 18px 18px 16px;
-  border-radius: 20px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(160, 206, 255, 0.14);
+.placeholder-initials {
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  color: rgba(239, 246, 255, 0.92);
 }
 
-.personal-stat-label {
-  color: #7fd4ff;
+.placeholder-scene {
+  min-height: 160px;
 }
 
-.personal-stat strong {
-  color: #ffffff;
-  line-height: 1.4;
+.placeholder-wide {
+  min-height: 100%;
+  height: 100%;
+}
+
+.personal-marquee {
+  overflow: hidden;
+  margin-bottom: 26px;
+  border-top: 1px solid rgba(173, 216, 255, 0.16);
+  border-bottom: 1px solid rgba(173, 216, 255, 0.16);
+  background: rgba(8, 18, 31, 0.46);
+}
+
+.personal-marquee-track {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 24px;
+  padding: 16px 6px;
+}
+
+.personal-marquee-track span {
+  color: rgba(234, 243, 255, 0.88);
+  font-weight: 700;
+  white-space: nowrap;
 }
 
 .personal-storyband {
@@ -688,6 +768,37 @@ body.personal-page {
 .storyband-card {
   padding: 26px 24px;
   background: rgba(16, 31, 53, 0.76);
+}
+
+.personal-band {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
+  gap: 20px;
+  margin-bottom: 28px;
+}
+
+.personal-band-copy {
+  padding: 30px 28px;
+  background: rgba(14, 29, 49, 0.78);
+}
+
+.personal-band-copy h2 {
+  color: #ffffff;
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.personal-band-copy p {
+  color: rgba(228, 238, 255, 0.86);
+}
+
+.personal-band-side {
+  display: grid;
+  gap: 18px;
+}
+
+.personal-band-side article {
+  padding: 22px;
+  background: rgba(15, 30, 52, 0.76);
 }
 
 .storyband-card h2,
@@ -717,8 +828,9 @@ body.personal-page {
   margin-bottom: 0;
 }
 
-.journey-list {
+.journey-grid {
   display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 16px;
 }
 
@@ -729,6 +841,11 @@ body.personal-page {
   align-items: start;
   padding: 24px;
   background: rgba(14, 28, 48, 0.78);
+}
+
+.journey-visual {
+  padding: 18px;
+  background: rgba(12, 26, 44, 0.74);
 }
 
 .journey-marker {
@@ -768,14 +885,24 @@ body.personal-page {
   gap: 18px;
 }
 
+.values-grid-wide {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
 .value-card {
   padding: 24px 22px;
   background: rgba(15, 30, 52, 0.76);
 }
 
 .personal-closing {
-  padding: 34px 30px 36px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(300px, 0.9fr);
+  gap: 20px;
   margin-top: 10px;
+}
+
+.personal-closing-copy {
+  padding: 34px 30px 36px;
   background:
     linear-gradient(180deg, rgba(13, 26, 44, 0.86), rgba(210, 229, 255, 0.16));
 }
@@ -785,12 +912,26 @@ body.personal-page {
   max-width: 18ch;
 }
 
+.personal-closing-visual {
+  padding: 18px;
+  background:
+    linear-gradient(180deg, rgba(12, 23, 39, 0.86), rgba(33, 59, 92, 0.48));
+}
+
+.placeholder-closing {
+  min-height: 100%;
+  height: 100%;
+}
+
 .personal-page .smooth-card:hover,
 .personal-page .journey-step:hover,
 .personal-page .storyband-card:hover,
 .personal-page .value-card:hover,
 .personal-page .personal-feature:hover,
-.personal-page .personal-hero-panel:hover {
+.personal-page .journey-visual:hover,
+.personal-page .personal-band-side article:hover,
+.personal-page .personal-closing-visual:hover,
+.personal-page .personal-hero-visual:hover {
   transform: translateY(-8px);
   border-color: rgba(130, 197, 255, 0.34);
   box-shadow: 0 28px 64px rgba(0, 0, 0, 0.34);
@@ -799,25 +940,36 @@ body.personal-page {
 @media (max-width: 980px) {
   .personal-hero,
   .personal-storyband,
+  .personal-band,
+  .journey-grid,
   .personal-duo,
-  .values-grid {
+  .values-grid,
+  .personal-closing {
     grid-template-columns: 1fr;
   }
 }
 
 @media (max-width: 760px) {
   .personal-hero-copy,
-  .personal-hero-panel,
+  .personal-hero-visual,
   .storyband-card,
   .journey-step,
+  .journey-visual,
   .personal-feature,
   .value-card,
-  .personal-closing {
+  .personal-closing-copy,
+  .personal-closing-visual,
+  .personal-band-copy,
+  .personal-band-side article {
     border-radius: 22px;
   }
 
   .personal-hero-copy {
     padding: 28px 24px;
+  }
+
+  .placeholder-pair {
+    grid-template-columns: 1fr;
   }
 
   .journey-step {
