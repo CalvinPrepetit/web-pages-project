@@ -638,10 +638,19 @@ body.personal-page {
 }
 
 .personal-hero h1 {
-  margin-bottom: 16px;
-  font-size: clamp(2.5rem, 5vw, 4.6rem);
+  margin-bottom: 12px;
+  font-size: clamp(3rem, 6vw, 5.3rem);
   line-height: 0.98;
   text-wrap: balance;
+}
+
+.personal-slogan {
+  margin: 0 0 14px;
+  font-size: clamp(1rem, 2vw, 1.28rem);
+  line-height: 1.2;
+  color: #a9d6ff;
+  font-weight: 700;
+  white-space: nowrap;
 }
 
 .personal-lead {
@@ -785,10 +794,19 @@ body.personal-page {
 .personal-band-copy h2 {
   color: #ffffff;
   font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 8px;
 }
 
 .personal-band-copy p {
   color: rgba(228, 238, 255, 0.86);
+}
+
+.personal-band-subtitle {
+  margin: 0 0 16px;
+  font-size: 1rem;
+  line-height: 1.4;
+  color: #a9d6ff;
+  font-weight: 700;
 }
 
 .personal-band-side {
@@ -799,6 +817,12 @@ body.personal-page {
 .personal-band-side article {
   padding: 22px;
   background: rgba(15, 30, 52, 0.76);
+}
+
+.personal-band-side h2 {
+  color: #ffffff;
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 10px;
 }
 
 .storyband-card h2,
@@ -966,6 +990,10 @@ body.personal-page {
 
   .personal-hero-copy {
     padding: 28px 24px;
+  }
+
+  .personal-slogan {
+    white-space: normal;
   }
 
   .placeholder-pair {
